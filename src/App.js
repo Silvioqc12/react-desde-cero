@@ -2,41 +2,7 @@ import React from 'react';
 import "./styles/styles.scss"
 import Curso from './Curso'
 
-const Cursos = [
-  {
-    "titulo": "React desde cero",
-    "image": "https://drupal.ed.team/sites/default/files/styles/16_9_medium/public/imagenes-cdn-edteam/2019-04/React%20desde%20cero%20%281%29.png",
-    "price": "30",
-    "profesor": "Beto Quiroga"
-  }, {
-    "titulo": "Drupal desde cero",
-    "image": "https://drupal.ed.team/sites/default/files/styles/medium/public/courses/images/drupal-theming-poster_0.png?itok=9bzhElpl",
-    "price": "60",
-    "profesor": "Beto Quiroga"
-  }, {
-    "titulo": "Go desde cero",
-    "image": "https://drupal.ed.team/sites/default/files/styles/medium/public/courses/images/go_0.jpg?itok=k2amLhrN",
-    "price": "50",
-    "profesor": "Alexis Losada"
-  }, {
-    "titulo": "HTML desde cero",
-    "image": "https://drupal.ed.team/sites/default/files/styles/medium/public/courses/images/pwa-poster_1.png?itok=CmNPn3bq",
-    "price": "10",
-    "profesor": " Alvaro Felipe"
-  } 
-  , {
-    "titulo": "Fundamento de redes",
-    "image": "https://drupal.ed.team/sites/default/files/imagenes-cdn-edteam/2019-03/Redes%20Fundamentos.png",
-    "price": "40",
-    "profesor": "Alexis Losada"
-  } 
-  , {
-    "titulo": "Android Base de datos",
-    "image": "https://drupal.ed.team/sites/default/files/styles/medium/public/imagenes-cdn-edteam/2019-01/Android%20Bases%20de%20datos.png?itok=3pW_l_7C",
-    "price": "50",
-    "profesor": "Alvaro Felipe"
-  } 
-]
+
 
 const App = () => (
 <>
@@ -51,12 +17,6 @@ const App = () => (
         </div>
       </div>
     </div>
-  </div>
-  <div className="ed-grid m-grid-3">
-    {
-      Cursos.map( c => <Curso title={c.titulo} image={c.image} price={c.price} profesor={c.profesor} /> )
-    }
-    
   </div>
 </>
 )
