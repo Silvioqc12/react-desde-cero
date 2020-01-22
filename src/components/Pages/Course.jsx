@@ -1,47 +1,35 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
+import axios from "axios"
+import useCourse from "../CustomHooks/useCourse"
 
 
-const courses = [
-    {
-        "id":1,
-        "titulo": "React desde cero",
-        "image": "https://drupal.ed.team/sites/default/files/imagenes-cdn-edteam/2019-04/React%20desarrollo%20frotend.png",
-        "price": 50,
-        "profesor": "Beto Quiroga"
-    },
-    {
-        "id":2,
-        "titulo": "Drupal desde cero",
-        "image": "https://drupal.ed.team/sites/default/files/styles/medium/public/courses/images/drupal-poster-720_3.jpg?itok=e93ErhMN",
-        "price": 40,
-        "profesor": "Alexys Lozada"
-    },
-    {
-        "id":3,
-        "titulo": "Go desde cero",
-        "image": "https://drupal.ed.team/sites/default/files/styles/medium/public/courses/images/go_0.jpg?itok=k2amLhrN",
-        "price": 20,
-        "profesor": "Beto Quiroga"
-    },
-    {
-        "id":4,
-        "titulo": "Html desde cero",
-        "image": "https://drupal.ed.team/sites/default/files/styles/medium/public/courses/images/HTML-2018.jpg?itok=Gyvm-W9t",
-        "price": 10,
-        "profesor": "Alvaro Felipe"
-    }
-]
 
 const Course = ({ match }) => {
+    
+    
+    const [comment, setComment] = useState("Sin comentarios")
+    const course = useCourse(match.params.id)
 
-    const cursoActual = courses.filter(c => c.id == parseInt(match.params.id))[0]
+
+    const myComment = e => {
+        setComment(e.target.value)
+    }
 
     return (
-        cursoActual ? (
+        course ? (
             <div className="ed-grid m-grid-3">
-                <h1 className="m-cols-3">{cursoActual.titulo} </h1>
-                <img className="m-cols-1" src={cursoActual.image} alt={cursoActual.titulo} />
-                <p className="m-cols-2"> Profesor: {cursoActual.profesor} </p>
+                <div className="ed-grid">
+                    <div className="l-block">
+                        <h1 className="m-cols-3">{course.titulo} </h1>
+                        <img className="m-cols-1" src={course.image} alt={course.titulo} />
+                        <p className="m-cols-2"> Profesor: {course.profesor} </p>
+                    </div>
+                    <div>
+                        <h2>Escribe tu comentario</h2>
+                        <input type="text" placeholder="Escribe..." onChange={myComment.bind(this)}/>
+                        <p>{comment}</p>
+                    </div>
+                </div>
             </div>
         ): 
         <div className="ed-grid">
